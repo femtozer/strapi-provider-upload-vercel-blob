@@ -1,0 +1,64 @@
+{
+  "name": "@femtozer/strapi-provider-upload-vercel-blob",
+  "version": "0.0.1",
+  "description": "Vercel Bloc provider for strapi upload",
+  "keywords": [
+    "upload",
+    "vercel",
+    "blob",
+    "strapi"
+  ],
+  "homepage": "https://github.com/femtozer/strapi-provider-upload-vercel-blob",
+  "bugs": {
+    "url": "https://github.com/femtozer/strapi-provider-upload-vercel-blob/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/femtozer/strapi-provider-upload-vercel-blob.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Eliott Benoit",
+    "email": "eliott.benoit4@gmail.com",
+    "url": "https://eliottbenoit.dev"
+  },
+  "maintainers": [
+    {
+      "name": "Eliott Benoit",
+      "email": "eliott.benoit4@gmail.com",
+      "url": "https://eliottbenoit.dev"
+    }
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && npm run build:types",
+    "build:esm": "esbuild src/index.ts --bundle --platform=node --format=esm --outdir=dist --minify --out-extension:.js=.mjs",
+    "build:cjs": "esbuild src/index.ts --bundle --platform=node --format=cjs --outdir=dist --minify",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "clean": "rimraf dist",
+    "lint": "eslint --ext .js,.ts .",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  },
+  "dependencies": {
+    "@vercel/blob": "0.14.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "esbuild": "^0.19.5",
+    "eslint": "^8.51.0",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  }
+}
