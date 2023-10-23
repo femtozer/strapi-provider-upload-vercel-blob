@@ -40,7 +40,7 @@ module.exports = {
 
 ## Update the Content Security Policy
 
-First copy the id of your store.
+First, copy the id of your store.
 It can be found on the url of your stores's dashboard:
 `https://vercel.com/dashboard/stores/blob/store_<STORE_ID>`
 
